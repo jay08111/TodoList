@@ -1,10 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
+const getLocalStorage = () => {
+  let getList = localStorage.getItem("list");
+  if (getList) {
+    return JSON.parse(localStorage.getItem("list"));
+  } else {
+    return [];
+  }
+};
+const showAlert = (show, msg, type) => {
+  return { show, msg, type };
+};
 const initialState = {
   name: "",
-  list: [],
+  list: getLocalStorage(),
   isEditing: false,
   editId: null,
+  alertShow: { show: false, msg: "", type: "" },
 };
 
 const todoSlice = createSlice({
@@ -16,12 +28,14 @@ const todoSlice = createSlice({
     },
     addTodo: (state, action) => {
       if (!state.name) {
+        state.name = "";
       } else if (state.isEditing) {
         state.list = state.list.map((item) =>
-          item.id === state.editId
+          state.editId === item.id
             ? { id: state.editId, value: state.name }
             : item
         );
+
         state.editId = null;
         state.name = "";
         state.isEditing = false;
