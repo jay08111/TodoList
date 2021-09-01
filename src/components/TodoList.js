@@ -14,14 +14,21 @@ function TodoList() {
       {list.map((item) => {
         const { id, value } = item;
         return (
-          <Grid key={id} container alignContent="space-around">
+          <Grid key={id} container>
             <Grid item xs={12}>
-              <Paper>
+              <Paper
+                elevation={3}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: "10px",
+                  padding: "10px",
+                  borderRadius: "4px",
+                }}
+              >
                 <div>
-                  {" "}
                   <p>{value}</p>
                 </div>
-
                 <ButtonGroup size="small">
                   <Button
                     onClick={() => dispatch(deleteTodo(id))}
@@ -47,7 +54,7 @@ function TodoList() {
         onClick={() => dispatch(allClear())}
         color="secondary"
         variant="contained"
-        style={{ marginTop: "3.5rem", width: "25vw" }}
+        style={{ width: "25vw", marginTop: "3.5rem" }}
       >
         clear All
       </Button>
