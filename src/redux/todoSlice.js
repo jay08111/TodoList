@@ -8,9 +8,6 @@ const getLocalStorage = () => {
     return [];
   }
 };
-const showAlert = (show, msg, type) => {
-  return { show, msg, type };
-};
 const initialState = {
   name: "",
   list: getLocalStorage(),

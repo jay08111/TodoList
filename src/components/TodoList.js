@@ -5,10 +5,36 @@ import { deleteTodo, allClear, editTodo } from "../redux/todoSlice";
 import { Grid } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-import { ButtonGroup } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+const useStyle = makeStyles((theme) => ({
+  paperStyle: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "10px",
+    padding: "10px",
+    borderRadius: "4px",
+  },
+  clearButton: {
+    width: "25vw",
+    marginTop: "30px",
+  },
+  deleteButton: {
+    marginRight: "10px",
+  },
+  boxStyle: {
+    padding: 0,
+    marginTop: "5px",
+  },
+  clearButtonBoxStyle: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
 function TodoList() {
   const { list } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const classes = useStyle();
   return (
     <>
       {list.map((item) => {
@@ -16,48 +42,41 @@ function TodoList() {
         return (
           <Grid key={id} container>
             <Grid item xs={12}>
-              <Paper
-                elevation={3}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginBottom: "10px",
-                  padding: "10px",
-                  borderRadius: "4px",
-                }}
-              >
+              <Paper elevation={3} className={classes.paperStyle}>
                 <div>
                   <p>{value}</p>
                 </div>
-                <ButtonGroup size="small">
+                <Box className={classes.boxStyle}>
                   <Button
                     onClick={() => dispatch(deleteTodo(id))}
                     variant="outlined"
-                    color="secondary"
+                    className={classes.deleteButton}
                   >
-                    delete
+                    삭제
                   </Button>
                   <Button
                     onClick={() => dispatch(editTodo(item))}
                     variant="outlined"
-                    color="secondary"
+                    className={classes.editButton}
                   >
-                    edit
+                    수정
                   </Button>
-                </ButtonGroup>
+                </Box>
               </Paper>
             </Grid>
           </Grid>
         );
       })}{" "}
-      <Button
-        onClick={() => dispatch(allClear())}
-        color="secondary"
-        variant="contained"
-        style={{ width: "25vw", marginTop: "3.5rem" }}
-      >
-        clear All
-      </Button>
+      <Box className={classes.clearButtonBoxStyle}>
+        <Button
+          onClick={() => dispatch(allClear())}
+          color="secondary"
+          variant="contained"
+          className={classes.clearButton}
+        >
+          모두 삭제
+        </Button>
+      </Box>
     </>
   );
 }
