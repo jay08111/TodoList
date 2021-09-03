@@ -5,17 +5,32 @@ import { setName, addTodo } from "../redux/todoSlice";
 import { Grid, TextField } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
   textField: {
     width: "40vw",
     marginLeft: "3rem",
     marginBottom: "3rem",
+    [theme.breakpoints.down("xs")]: {
+      width: "39vw",
+      marginLeft: "3px",
+    },
   },
   buttonStyle: {
     marginLeft: "2rem",
     padding: "0.4rem",
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "0.5rem",
+    },
   },
-});
+  grid: {
+    direction: "row",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("xs")]: {
+      minWidth: "62vw",
+    },
+  },
+}));
 function Form() {
   const dispatch = useDispatch();
   const { name, isEditing } = useSelector((state) => state);
@@ -24,10 +39,11 @@ function Form() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        dispatch(addTodo());
       }}
     >
-      <Grid container>
-        <Grid item>
+      <Grid container className={classes.grid}>
+        <Grid item xs={3}>
           <TextField
             id="standard-basic"
             type="text"
@@ -35,16 +51,17 @@ function Form() {
             onChange={(e) => dispatch(setName(e.target.value))}
             label="리스트를 작성하세요"
             className={classes.textField}
+            InputLabelProps={{ style: { fontSize: 15 } }}
           />
         </Grid>
         <Grid item>
           {" "}
           <Button
-            onClick={() => dispatch(addTodo())}
             className={classes.buttonStyle}
             size="large"
             color="primary"
             variant="contained"
+            type="submit"
           >
             {isEditing ? "수정" : "작성"}
           </Button>

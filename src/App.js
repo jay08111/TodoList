@@ -7,15 +7,19 @@ import { Typography } from "@material-ui/core";
 import theme from "./components/CreateTheme";
 import { ThemeProvider } from "@material-ui/styles";
 import { makeStyles } from "@material-ui/core";
-const useStyle = makeStyles({
+
+const useStyle = makeStyles((theme) => ({
   typoStyle: {
     fontSize: "2.5rem",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.5rem",
+    },
   },
   containerStyle: {
     width: "60%",
     marginTop: "5rem",
   },
-});
+}));
 function App() {
   const { list } = useSelector((state) => state);
   useEffect(() => {

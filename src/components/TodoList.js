@@ -11,20 +11,40 @@ const useStyle = makeStyles((theme) => ({
   paperStyle: {
     display: "flex",
     justifyContent: "space-between",
-    marginBottom: "10px",
-    padding: "10px",
-    borderRadius: "4px",
+    marginBottom: "12px",
+    padding: "12px",
+    borderRadius: "8px",
+    flexWrap: "wrap",
+    [theme.breakpoints.down("xs")]: {
+      minWidth: "50vw",
+      minHeight: "10vh",
+    },
   },
   clearButton: {
     width: "25vw",
     marginTop: "30px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "0.7rem",
+    },
+  },
+  editButton: {
+    [theme.breakpoints.down("xs")]: {
+      padding: "1px",
+    },
   },
   deleteButton: {
     marginRight: "10px",
+    [theme.breakpoints.down("xs")]: {
+      padding: "1px",
+    },
   },
   boxStyle: {
     padding: 0,
     marginTop: "5px",
+    [theme.breakpoints.down("xs")]: {
+      margin: "0",
+      marginTop: "1rem",
+    },
   },
   clearButtonBoxStyle: {
     display: "flex",
