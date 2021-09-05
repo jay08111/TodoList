@@ -7,6 +7,9 @@ import { Paper } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import { Box } from "@material-ui/core";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditSharpIcon from "@material-ui/icons/EditSharp";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 const useStyle = makeStyles((theme) => ({
   paperStyle: {
     display: "flex",
@@ -15,6 +18,7 @@ const useStyle = makeStyles((theme) => ({
     padding: "12px",
     borderRadius: "8px",
     flexWrap: "wrap",
+    width: "100%",
     [theme.breakpoints.down("xs")]: {
       minWidth: "50vw",
       minHeight: "10vh",
@@ -23,8 +27,15 @@ const useStyle = makeStyles((theme) => ({
   clearButton: {
     width: "25vw",
     marginTop: "30px",
+    textTransform: "capitalize",
     [theme.breakpoints.down("xs")]: {
       fontSize: "0.7rem",
+    },
+    "@media (min-width:280px) and (max-width:281px)": {
+      fontSize: "0.6rem",
+    },
+    "@media (min-width:540px) and (max-width:542px)": {
+      fontSize: "1rem",
     },
   },
   editButton: {
@@ -34,6 +45,7 @@ const useStyle = makeStyles((theme) => ({
   },
   deleteButton: {
     marginRight: "10px",
+
     [theme.breakpoints.down("xs")]: {
       padding: "1px",
     },
@@ -70,16 +82,18 @@ function TodoList() {
                   <Button
                     onClick={() => dispatch(deleteTodo(id))}
                     variant="outlined"
+                    color="secondary"
                     className={classes.deleteButton}
                   >
-                    삭제
+                    <DeleteOutlineIcon />
                   </Button>
                   <Button
                     onClick={() => dispatch(editTodo(item))}
-                    variant="outlined"
                     className={classes.editButton}
+                    variant="outlined"
+                    color="primary"
                   >
-                    수정
+                    <EditSharpIcon />
                   </Button>
                 </Box>
               </Paper>
@@ -90,11 +104,10 @@ function TodoList() {
       <Box className={classes.clearButtonBoxStyle}>
         <Button
           onClick={() => dispatch(allClear())}
-          color="secondary"
           variant="contained"
           className={classes.clearButton}
         >
-          모두 삭제
+          all <HighlightOffIcon />
         </Button>
       </Box>
     </>

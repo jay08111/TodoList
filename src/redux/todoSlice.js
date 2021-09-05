@@ -26,7 +26,7 @@ const todoSlice = createSlice({
     addTodo: (state, action) => {
       if (!state.name) {
         state.name = "";
-      } else if (state.isEditing) {
+      } else if (state.isEditing && state.name) {
         state.list = state.list.map((item) =>
           state.editId === item.id
             ? { id: state.editId, value: state.name }

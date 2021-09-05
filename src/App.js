@@ -14,6 +14,9 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "1.5rem",
     },
+    "@media (min-width:280px) and (max-width:281px)": {
+      fontSize: "1.2rem",
+    },
   },
   containerStyle: {
     width: "60%",

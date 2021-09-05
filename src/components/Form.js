@@ -11,16 +11,27 @@ const useStyles = makeStyles((theme) => ({
     width: "40vw",
     marginLeft: "3rem",
     marginBottom: "3rem",
+    color: "#fff",
+    "& .MuiFormLabel-root": {
+      fontSize: 20,
+    },
     [theme.breakpoints.down("xs")]: {
       width: "39vw",
       marginLeft: "3px",
+    },
+    "@media (min-width:280px) and (max-width:281px)": {
+      width: "35vw",
     },
   },
   buttonStyle: {
     marginLeft: "2rem",
     padding: "0.4rem",
     [theme.breakpoints.down("xs")]: {
-      marginTop: "0.5rem",
+      marginTop: "1rem",
+      padding: "0.2rem",
+    },
+    "@media (min-width:540px) and (max-width:542px)": {
+      marginRight: "1.8rem",
     },
   },
   grid: {
@@ -28,6 +39,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     [theme.breakpoints.down("xs")]: {
       minWidth: "62vw",
+    },
+  },
+  inputLabelPropStyle: {
+    fontSize: 10,
+    "@media (min-width:280px) and (max-width:281px)": {
+      fontSize: 10,
     },
   },
 }));
@@ -51,7 +68,7 @@ function Form() {
             onChange={(e) => dispatch(setName(e.target.value))}
             label="리스트를 작성하세요"
             className={classes.textField}
-            InputLabelProps={{ style: { fontSize: 15 } }}
+            InputLabelProps={{ style: { fontSize: 12 } }}
           />
         </Grid>
         <Grid item>
