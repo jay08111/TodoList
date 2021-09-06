@@ -24,9 +24,35 @@ const useStyles = makeStyles((theme) => ({
       width: "38vw",
     },
   },
-  buttonStyle: {
+  editButtonStyle: {
     marginLeft: "2rem",
     padding: "0.4rem",
+    textTransform: "capitalize",
+    backgroundColor: "#2664ff",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "blue",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
+      padding: "0.2rem",
+    },
+    "@media (min-width:540px) and (max-width:542px)": {
+      marginRight: "1.8rem",
+    },
+    "@media (min-width:640px) and (max-width:769px)": {
+      marginLeft: "2rem",
+    },
+  },
+  subMitButtonStyle: {
+    marginLeft: "2rem",
+    padding: "0.4rem",
+    textTransform: "capitalize",
+    backgroundColor: "#ff5a5f",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "red",
+    },
     [theme.breakpoints.down("xs")]: {
       marginTop: "1rem",
       padding: "0.2rem",
@@ -77,15 +103,27 @@ function Form() {
         </Grid>
         <Grid item>
           {" "}
-          <Button
-            className={classes.buttonStyle}
-            size="large"
-            color="primary"
-            variant="contained"
-            type="submit"
-          >
-            {isEditing ? "수정" : "작성"}
-          </Button>
+          {isEditing ? (
+            <Button
+              className={classes.editButtonStyle}
+              size="large"
+              color="warning"
+              variant="contained"
+              type="submit"
+            >
+              edit
+            </Button>
+          ) : (
+            <Button
+              className={classes.subMitButtonStyle}
+              size="large"
+              color="warning"
+              variant="contained"
+              type="submit"
+            >
+              submit
+            </Button>
+          )}
         </Grid>
       </Grid>
     </form>

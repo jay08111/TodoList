@@ -23,7 +23,7 @@ const todoSlice = createSlice({
     setName: (state, action) => {
       state.name = action.payload;
     },
-    addTodo: (state, action) => {
+    addTodo: (state) => {
       if (!state.name) {
         state.name = "";
       } else if (state.isEditing && state.name) {

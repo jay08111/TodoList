@@ -31,6 +31,12 @@ const useStyle = makeStyles((theme) => ({
     marginTop: "30px",
     textTransform: "capitalize",
     marginBottom: "20px",
+    backgroundColor: "#ffe8ee",
+    "&:hover": {
+      backgroundColor: "#000",
+      borderRadius: "10px",
+      color: "#fff",
+    },
     [theme.breakpoints.down("xs")]: {
       fontSize: "0.7rem",
     },
