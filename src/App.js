@@ -7,10 +7,13 @@ import { Typography } from "@material-ui/core";
 import theme from "./components/CreateTheme";
 import { ThemeProvider } from "@material-ui/styles";
 import { makeStyles } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+import { CssBaseline } from "@material-ui/core";
 
 const useStyle = makeStyles((theme) => ({
   typoStyle: {
-    fontSize: "2.5rem",
+    fontSize: "3rem",
+    fontFamily: "Dancing Script",
     [theme.breakpoints.down("xs")]: {
       fontSize: "1.5rem",
     },
@@ -22,6 +25,14 @@ const useStyle = makeStyles((theme) => ({
     width: "60%",
     marginTop: "5rem",
   },
+  boxStyle: {
+    overflow: "hidden",
+    height: "100%",
+    minHeight: "100vh",
+    backgroundImage: `url(${process.env.PUBLIC_URL + "/backgImg.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
 }));
 function App() {
   const { list } = useSelector((state) => state);
@@ -30,24 +41,27 @@ function App() {
   }, [list]);
   const classes = useStyle();
   return (
-    <ThemeProvider theme={theme}>
-      <Container className={classes.containerStyle}>
-        <div>
+    <Box className={classes.boxStyle}>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <Container className={classes.containerStyle}>
           <div>
-            <Typography
-              variant="h4"
-              gutterBottom
-              align="center"
-              className={classes.typoStyle}
-            >
-              오늘은 무엇을 할 예정이세요?
-            </Typography>
+            <div>
+              <Typography
+                variant="h4"
+                gutterBottom
+                align="center"
+                className={classes.typoStyle}
+              >
+                what are your plans for today
+              </Typography>
+            </div>
+            <Form />
+            {list.length > 0 && <TodoList />}
           </div>
-          <Form />
-          {list.length > 0 && <TodoList />}
-        </div>
-      </Container>
-    </ThemeProvider>
+        </Container>
+      </ThemeProvider>
+    </Box>
   );
 }
 

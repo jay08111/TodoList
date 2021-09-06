@@ -12,15 +12,16 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "3rem",
     marginBottom: "3rem",
     color: "#fff",
-    "& .MuiFormLabel-root": {
-      fontSize: 20,
-    },
     [theme.breakpoints.down("xs")]: {
       width: "39vw",
       marginLeft: "3px",
     },
     "@media (min-width:280px) and (max-width:281px)": {
       width: "35vw",
+    },
+    "@media (min-width:640px) and (max-width:769px)": {
+      marginLeft: "2rem",
+      width: "38vw",
     },
   },
   buttonStyle: {
@@ -32,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     },
     "@media (min-width:540px) and (max-width:542px)": {
       marginRight: "1.8rem",
+    },
+    "@media (min-width:640px) and (max-width:769px)": {
+      marginLeft: "2rem",
     },
   },
   grid: {

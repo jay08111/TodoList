@@ -10,6 +10,7 @@ import { Box } from "@material-ui/core";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditSharpIcon from "@material-ui/icons/EditSharp";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import { Typography } from "@material-ui/core";
 const useStyle = makeStyles((theme) => ({
   paperStyle: {
     display: "flex",
@@ -19,6 +20,7 @@ const useStyle = makeStyles((theme) => ({
     borderRadius: "8px",
     flexWrap: "wrap",
     width: "100%",
+    background: "rgba(255,255,255,0.6)",
     [theme.breakpoints.down("xs")]: {
       minWidth: "50vw",
       minHeight: "10vh",
@@ -28,6 +30,7 @@ const useStyle = makeStyles((theme) => ({
     width: "25vw",
     marginTop: "30px",
     textTransform: "capitalize",
+    marginBottom: "20px",
     [theme.breakpoints.down("xs")]: {
       fontSize: "0.7rem",
     },
@@ -62,6 +65,9 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  pStyle: {
+    fontFamily: "'Amatic SC','sans-serif'",
+  },
 }));
 function TodoList() {
   const { list } = useSelector((state) => state);
@@ -75,9 +81,9 @@ function TodoList() {
           <Grid key={id} container>
             <Grid item xs={12}>
               <Paper elevation={3} className={classes.paperStyle}>
-                <div>
-                  <p>{value}</p>
-                </div>
+                <Box>
+                  <Typography clasName={classes.pStyle}>{value}</Typography>
+                </Box>
                 <Box className={classes.boxStyle}>
                   <Button
                     onClick={() => dispatch(deleteTodo(id))}
@@ -107,7 +113,9 @@ function TodoList() {
           variant="contained"
           className={classes.clearButton}
         >
-          all <HighlightOffIcon />
+          all
+          <br />
+          <HighlightOffIcon />
         </Button>
       </Box>
     </>
