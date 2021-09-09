@@ -19,7 +19,9 @@ const useStyle = makeStyles((theme) => ({
     padding: "12px",
     borderRadius: "8px",
     flexWrap: "wrap",
-    width: "100%",
+    overflow: "hidden",
+
+    maxWidth: "100%",
     background: "rgba(255,255,255,0.6)",
     [theme.breakpoints.down("xs")]: {
       minWidth: "50vw",
@@ -74,6 +76,9 @@ const useStyle = makeStyles((theme) => ({
   pStyle: {
     fontFamily: "'Amatic SC','sans-serif'",
   },
+  wordBreak: {
+    wordWrap: "break-word",
+  },
 }));
 function TodoList() {
   const { list } = useSelector((state) => state);
@@ -87,7 +92,7 @@ function TodoList() {
           <Grid key={id} container>
             <Grid item xs={12}>
               <Paper elevation={3} className={classes.paperStyle}>
-                <Box>
+                <Box className={classes.wordBreak}>
                   <Typography clasName={classes.pStyle}>{value}</Typography>
                 </Box>
                 <Box className={classes.boxStyle}>
@@ -120,7 +125,6 @@ function TodoList() {
           className={classes.clearButton}
         >
           all
-          <br />
           <HighlightOffIcon />
         </Button>
       </Box>
