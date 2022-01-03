@@ -17,7 +17,7 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "1.5rem",
     },
-    "@media (min-width:280px) and (max-width:281px)": {
+    "@media (max-width:281px)": {
       fontSize: "1.2rem",
     },
   },
@@ -53,7 +53,7 @@ function App() {
                 align="center"
                 className={classes.typoStyle}
               >
-                what are your plans for today
+                what are your plans for today ?
               </Typography>
             </div>
             <Form />

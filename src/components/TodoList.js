@@ -42,11 +42,11 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "0.7rem",
     },
-    "@media (min-width:280px) and (max-width:281px)": {
-      fontSize: "0.6rem",
-    },
-    "@media (min-width:540px) and (max-width:542px)": {
+    "@media (max-width:542px)": {
       fontSize: "1rem",
+    },
+    "@media (max-width:281px)": {
+      fontSize: "0.6rem",
     },
   },
   editButton: {

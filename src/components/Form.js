@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
       width: "39vw",
       marginLeft: "3px",
     },
-    "@media (min-width:280px) and (max-width:281px)": {
-      width: "35vw",
-    },
-    "@media (min-width:640px) and (max-width:769px)": {
+    "@media (max-width:769px)": {
       marginLeft: "2rem",
       width: "38vw",
+    },
+    "@media (max-width:281px)": {
+      width: "35vw",
     },
   },
   editButtonStyle: {
@@ -37,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "1rem",
       padding: "0.2rem",
     },
-    "@media (min-width:540px) and (max-width:542px)": {
-      marginRight: "1.8rem",
-    },
-    "@media (min-width:640px) and (max-width:769px)": {
+    "@media  (max-width:769px)": {
       marginLeft: "2rem",
+    },
+    "@media (max-width:542px)": {
+      marginRight: "1.8rem",
     },
   },
   subMitButtonStyle: {
@@ -57,11 +57,11 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "1rem",
       padding: "0.2rem",
     },
-    "@media (min-width:540px) and (max-width:542px)": {
-      marginRight: "1.8rem",
-    },
-    "@media (min-width:640px) and (max-width:769px)": {
+    "@media (max-width:769px)": {
       marginLeft: "2rem",
+    },
+    "@media (max-width:542px)": {
+      marginRight: "1.8rem",
     },
   },
   grid: {
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputLabelPropStyle: {
     fontSize: 10,
-    "@media (min-width:280px) and (max-width:281px)": {
+    "@media (max-width:281px)": {
       fontSize: 10,
     },
   },
