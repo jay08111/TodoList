@@ -107,7 +107,6 @@ function Form() {
             <Button
               className={classes.editButtonStyle}
               size="large"
-              color="warning"
               variant="contained"
               type="submit"
             >
@@ -117,7 +116,6 @@ function Form() {
             <Button
               className={classes.subMitButtonStyle}
               size="large"
-              color="warning"
               variant="contained"
               type="submit"
             >

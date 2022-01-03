@@ -74,7 +74,7 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "center",
   },
   pStyle: {
-    fontFamily: "'Amatic SC','sans-serif'",
+    fontFamily: "'sans-serif'",
   },
   wordBreak: {
     wordWrap: "break-word",
@@ -93,7 +93,7 @@ function TodoList() {
             <Grid item xs={12}>
               <Paper elevation={3} className={classes.paperStyle}>
                 <Box className={classes.wordBreak}>
-                  <Typography clasName={classes.pStyle}>{value}</Typography>
+                  <Typography className={classes.pStyle}>{value}</Typography>
                 </Box>
                 <Box className={classes.boxStyle}>
                   <Button
@@ -117,7 +117,7 @@ function TodoList() {
             </Grid>
           </Grid>
         );
-      })}{" "}
+      })}
       <Box className={classes.clearButtonBoxStyle}>
         <Button
           onClick={() => dispatch(allClear())}
