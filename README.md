@@ -8,7 +8,7 @@
     <img src="./public/byunhoyeoun.jpg" alt="Logo" width="100" height="100">
   </a>
 
-<h3 align="center">Profile Site</h3>
+<h3 align="center"></h3>
 
   <p align="center">
 
